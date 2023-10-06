@@ -1,7 +1,6 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from Locators import Locators as Loc
+from locators import Locators as Loc
 
 
 class TestEnterAccount:
@@ -13,8 +12,7 @@ class TestEnterAccount:
         driver.find_element(*Loc.INPUT_MAIL).send_keys('dns88@mail.ru')
         driver.find_element(*Loc.INPUT_PASS).send_keys('123456')
         driver.find_element(*Loc.ENTER_BUTTON).click()
-        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(Loc.MAKE_PURCHASE_BUTTON)).click()
-        driver.quit()
+        assert WebDriverWait(driver, 5).until(EC.element_to_be_clickable(Loc.MAKE_PURCHASE_BUTTON))
 
     def test_enter_account_from_private_area(self, driver):
         driver.get('https://stellarburgers.nomoreparties.site/')
@@ -23,8 +21,7 @@ class TestEnterAccount:
         driver.find_element(*Loc.INPUT_MAIL).send_keys('dns88@mail.ru')
         driver.find_element(*Loc.INPUT_PASS).send_keys('123456')
         driver.find_element(*Loc.ENTER_BUTTON).click()
-        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(Loc.MAKE_PURCHASE_BUTTON)).click()
-        driver.quit()
+        assert WebDriverWait(driver, 5).until(EC.element_to_be_clickable(Loc.MAKE_PURCHASE_BUTTON))
 
     def test_enter_account_from_registr_form(self, driver):
         driver.get('https://stellarburgers.nomoreparties.site/')
@@ -35,8 +32,7 @@ class TestEnterAccount:
         driver.find_element(*Loc.INPUT_MAIL).send_keys('dns88@mail.ru')
         driver.find_element(*Loc.INPUT_PASS).send_keys('123456')
         driver.find_element(*Loc.ENTER_BUTTON).click()
-        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(Loc.MAKE_PURCHASE_BUTTON)).click()
-        driver.quit()
+        assert WebDriverWait(driver, 5).until(EC.element_to_be_clickable(Loc.MAKE_PURCHASE_BUTTON))
 
     def test_enter_account_from_password_restore(self, driver):
         driver.get('https://stellarburgers.nomoreparties.site/')
@@ -47,5 +43,4 @@ class TestEnterAccount:
         driver.find_element(*Loc.INPUT_MAIL).send_keys('dns88@mail.ru')
         driver.find_element(*Loc.INPUT_PASS).send_keys('123456')
         driver.find_element(*Loc.ENTER_BUTTON).click()
-        WebDriverWait(driver, 5).until(EC.visibility_of_element_located(Loc.MAKE_PURCHASE_BUTTON)).click()
-        driver.quit()
+        assert WebDriverWait(driver, 5).until(EC.element_to_be_clickable(Loc.MAKE_PURCHASE_BUTTON))

@@ -1,7 +1,7 @@
 import pytest
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from Locators import Locators as Loc
+from locators import Locators as Loc
 
 
 class TestConstructor:
@@ -14,4 +14,4 @@ class TestConstructor:
         if for_click != Loc.BUNCHES:
             driver.find_element(*for_click).click()
         assert WebDriverWait(driver, 8).until(EC.presence_of_element_located(for_presence))
-        driver.quit()
+
